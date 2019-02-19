@@ -39,7 +39,7 @@
 		"client_secret=93166f7887a275dbf3607a70f06cfb79317&" + 
 		"code=" + getQueryVariable("code");
 
-	xhr.open("POST", 'https://twist.com/oauth/access_token', true);
+	xhr.open("GET", 'https://twist.com/oauth/access_token', true);
 	xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
 
 	xhr.onreadystatechange = ...;
