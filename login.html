@@ -7,12 +7,14 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+	<link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body>
 	<div class="container">
-		<div class="row">
+		<div class="row mar-30 text-center">
 			<div class="col-md-4 offset-md-4 col-sm-12">
-				Now you are going to be redirected
+				<h1 id="code"></h1>
+				<button class="btn btn-primary m-4">Копировать и закрыть</button>
 			</div>
 		</div>
 	</div>
@@ -25,13 +27,28 @@
        var query = window.location.search.substring(1);
        var vars = query.split("&");
        for (var i=0;i<vars.length;i++) {
-               var pair = vars[i].split("=");
-               if(pair[0] == variable){return pair[1];}
+            var pair = vars[i].split("=");
+            if(pair[0] == variable){return pair[1];}
        }
        return(false);
 	};
 
-	var codeParam = getQueryVariable("code");
+	var code = getQueryVariable("code");
+	$("#code").text(code);
+
+	$('button').on('click', function(){
+		var text = code;
+
+		var $temp = $("<input>");
+		$("body").append($temp);
+		$temp.val(code).select();
+		document.execCommand("copy");
+		$temp.remove();
+
+		window.close();
+	});
+
+	/*var codeParam = getQueryVariable("code");
 	var data = {
 		client_id:'9310c253391186e82b22dda1de4236981b3',
 		client_secret: '93166f7887a275dbf3607a70f06cfb79317',
@@ -42,10 +59,9 @@
 	$.ajax({
 		url: url,
 		data: data,
+		type: "POST",
 		success: function(data, status){
 		console.log(data + " " + status)
 	}
-	})/*url,data, function(data, status){
-		console.log(data + " " + status)
 	});*/
 </script>
