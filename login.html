@@ -35,8 +35,10 @@
        return(false);
 	};
 
+	var state = getQueryVariable("state");
 	var code = getQueryVariable("code");
-	$("#code").text(code);
+
+	$("#code").text(state + ";" + code);
 
 	$('button').on('click', function(){
 		var text = code;
