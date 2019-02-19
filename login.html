@@ -11,9 +11,26 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-md-4 offset-md-4 col-sm-12">
-				Here we can get some json data
+				Now you are going to be redirected
 			</div>
 		</div>
 	</div>
 </body>
 </html>
+
+<script>
+	function getQueryVariable(variable)
+	{
+       var query = window.location.search.substring(1);
+       var vars = query.split("&");
+       for (var i=0;i<vars.length;i++) {
+               var pair = vars[i].split("=");
+               if(pair[0] == variable){return pair[1];}
+       }
+       return(false);
+	}
+	window.location.replace("https://twist.com/oauth/access_token?" +
+		"client_id=9310c253391186e82b22dda1de4236981b3&" +
+		"client_secret=93166f7887a275dbf3607a70f06cfb79317&" + 
+		"code=" + getQueryVariable("code"))
+</script>
