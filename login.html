@@ -45,7 +45,7 @@
 
 		var $temp = $("<input>");
 		$("body").append($temp);
-		$temp.val(code).select();
+		$temp.val($("#code").text()).select();
 		document.execCommand("copy");
 		$temp.remove();
 		$("#success").text("Код скопирован, это окно можно закрыть");
