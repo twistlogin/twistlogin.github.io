@@ -11,10 +11,12 @@
 </head>
 <body>
 	<div class="container">
-		<div class="row mar-30">
+		<div class="row mar-20">
 			<div class="col-md-12 col-sm-12 text-center">
+				<h1>Код:</h1>
 				<h1 id="code"></h1>
-				<button class="btn btn-primary m-4">Копировать и закрыть</button>
+				<button class="btn btn-primary m-4">Копировать</button>
+				<h3 id="success"></h3>
 			</div>
 		</div>
 	</div>
@@ -44,8 +46,7 @@
 		$temp.val(code).select();
 		document.execCommand("copy");
 		$temp.remove();
-
-		window.close();
+		$("#success").text("Код скопирован, это окно можно закрыть");
 	});
 
 	/*var codeParam = getQueryVariable("code");
