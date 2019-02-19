@@ -1,2 +1,4 @@
-<a href="https:\\twistlogin.github.io" target="_blank">twistlogin.github.io</a><br/>
+twistlogin.github.io
 Login for twist integration
+
+На этот сайт будет направлен реквест от твистера с кодом авторизации, который необходимо скопировать и вставить в приложение для уведомлений
