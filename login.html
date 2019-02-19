@@ -29,20 +29,16 @@
        }
        return(false);
 	};
-	//window.location.replace("https://twist.com/oauth/access_token?" +
-	//	"client_id=9310c253391186e82b22dda1de4236981b3&" +
-	//	"client_secret=93166f7887a275dbf3607a70f06cfb79317&" + 
-	//	"code=" + getQueryVariable("code"))
-	var xhr = new XMLHttpRequest();
 
-	var body = "client_id=9310c253391186e82b22dda1de4236981b3&" +
-		"client_secret=93166f7887a275dbf3607a70f06cfb79317&" + 
-		"code=" + getQueryVariable("code");
+	var codeParam = getQueryVariable("code");
+	var data = {
+		client_id:'9310c253391186e82b22dda1de4236981b3',
+		client_secret: '93166f7887a275dbf3607a70f06cfb79317',
+		code: codeParam
+	};
 
-	xhr.open("POST", 'https://twist.com/oauth/access_token', true);
-	xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-	xhr.setRequestHeader('Access-Control-Allow-Origin', 'https://twist.com');
-	//xhr.onreadystatechange = ...;
-
-	xhr.send(body);
+	var url = 'https://twist.com/oauth/access_token'
+	$.post(url,data, function(data, status){
+		console.log(data + " " + status)
+	});
 </script>
