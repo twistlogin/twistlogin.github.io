@@ -30,5 +30,5 @@ else if (error === "ACCESS_DENIED")
 {
 	$("h1").hide();
 	$("button").hide();
-	$("#success").text(error_message.replace("+", " ") + "\nДействие отменено пользователем.");
+	$("#success").text("\nДействие отменено пользователем.");
 }
