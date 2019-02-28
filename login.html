@@ -20,60 +20,6 @@
 			</div>
 		</div>
 	</div>
+	<script src="scripts/script.js"></script>
 </body>
 </html>
-
-<script>
-	function getQueryVariable(variable)
-	{
-       var query = window.location.search.substring(1);
-       var vars = query.split("&");
-       for (var i=0;i<vars.length;i++) {
-            var pair = vars[i].split("=");
-            if(pair[0] == variable){return pair[1];}
-       }
-       return(false);
-	};
-
-	var state = getQueryVariable("state");
-	var code = getQueryVariable("code");
-	var error_message = getQueryVariable("error_message");
-
-	$("#code").text(state + ";" + code);
-	if (code)
-	{
-		$('button').on('click', function(){
-			var text = code;
-
-			var $temp = $("<input>");
-			$("body").append($temp);
-			$temp.val($("#code").text()).select();
-			document.execCommand("copy");
-			$temp.remove();
-			$("#success").text("Код скопирован, это окно можно закрыть");
-		});
-	}
-	else if (error_message)
-	{
-		$("h1").hide();
-		$("button").hide();
-		$("#success").text(error_message);
-	}
-
-	/*var codeParam = getQueryVariable("code");
-	var data = {
-		client_id:'9310c253391186e82b22dda1de4236981b3',
-		client_secret: '93166f7887a275dbf3607a70f06cfb79317',
-		code: codeParam
-	};
-	console.log('hi');
-	var url = 'https://twist.com/oauth/access_token'
-	$.ajax({
-		url: url,
-		data: data,
-		type: "POST",
-		success: function(data, status){
-		console.log(data + " " + status)
-	}
-	});*/
-</script>
